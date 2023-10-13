@@ -79,13 +79,12 @@ const DropdownNotification = () => {
             >
               <p className="text-sm">
                 <span className="text-black dark:text-white">
-                  Edit your information in a swipe
-                </span>{' '}
-                Sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim.
+                  Dahisar
+                </span>{' '} <br/>
+                50kg - Plastic Cup, Notebook 
               </p>
 
-              <p className="text-xs">12 May, 2025</p>
+              <p className="text-xs">12 October, 2023</p>
             </Link>
           </li>
           <li>
@@ -94,13 +93,13 @@ const DropdownNotification = () => {
               to="#"
             >
               <p className="text-sm">
-                <span className="text-black dark:text-white">
-                  It is a long established fact
-                </span>{' '}
-                that a reader will be distracted by the readable.
+              <span className="text-black dark:text-white">
+                  Mira Bhayander
+                </span>{' '} <br/>
+                123kg - Cardboard Box, Furniture
               </p>
 
-              <p className="text-xs">24 Feb, 2025</p>
+              <p className="text-xs">24 August, 2023</p>
             </Link>
           </li>
           <li>
@@ -109,30 +108,13 @@ const DropdownNotification = () => {
               to="#"
             >
               <p className="text-sm">
-                <span className="text-black dark:text-white">
-                  There are many variations
-                </span>{' '}
-                of passages of Lorem Ipsum available, but the majority have
-                suffered
+              <span className="text-black dark:text-white">
+                  Borivali
+                </span>{' '} <br/>
+                38kg - Books
               </p>
 
-              <p className="text-xs">04 Jan, 2025</p>
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="flex flex-col gap-2.5 border-t border-stroke px-4.5 py-3 hover:bg-gray-2 dark:border-strokedark dark:hover:bg-meta-4"
-              to="#"
-            >
-              <p className="text-sm">
-                <span className="text-black dark:text-white">
-                  There are many variations
-                </span>{' '}
-                of passages of Lorem Ipsum available, but the majority have
-                suffered
-              </p>
-
-              <p className="text-xs">01 Dec, 2024</p>
+              <p className="text-xs">24 August, 2023</p>
             </Link>
           </li>
         </ul>
