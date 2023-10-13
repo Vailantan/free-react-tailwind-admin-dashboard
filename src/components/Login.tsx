@@ -39,12 +39,13 @@ export default function Home() {
 
     if (flag) {
       alert("Login unsuccessful");
-      flag = true;
+      navigate('/home');
+    flag = true;
     }
   };
 
   const navigateDashboard = () => {
-    navigate('/home');
+    navigate('/profile');
   };
 
   const inputs = document.querySelectorAll(".input");
