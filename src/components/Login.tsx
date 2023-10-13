@@ -39,7 +39,8 @@ export default function Home() {
 
     if (flag) {
       alert("Login unsuccessful");
-      flag = true;
+      // navigate('/home');
+    flag = true;
     }
   };
 
