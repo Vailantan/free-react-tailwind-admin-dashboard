@@ -7,169 +7,148 @@ import BrandFive from '../images/brand/brand-05.svg';
 const TableOne = () => {
   return (
     <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
-      <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-        Top Channels
-      </h4>
+     
 
       <div className="flex flex-col">
         <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
           <div className="p-2.5 xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Source
+              Name
             </h5>
           </div>
           <div className="p-2.5 text-center xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Visitors
+              Weight
             </h5>
           </div>
           <div className="p-2.5 text-center xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Revenues
+              Type of Waste
             </h5>
           </div>
           <div className="hidden p-2.5 text-center sm:block xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Sales
+              Amount
             </h5>
           </div>
           <div className="hidden p-2.5 text-center sm:block xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
-              Conversion
+              Location
             </h5>
           </div>
         </div>
 
         <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <div className="flex-shrink-0">
-              <img src={BrandOne} alt="Brand" />
-            </div>
-            <p className="hidden text-black dark:text-white sm:block">Google</p>
+            <p className="hidden text-black dark:text-white sm:block">Vailantan</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">3.5K</p>
+            <p className="text-black dark:text-white">3.5KG</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-3">$5,768</p>
+            <p className="text-meta-3">E-Waste</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">590</p>
+            <p className="text-black dark:text-white">590 Rs</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-meta-5">4.8%</p>
+            <p className="text-black dark:text-white">Mumbai</p>
           </div>
         </div>
 
         <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <div className="flex-shrink-0">
-              <img src={BrandTwo} alt="Brand" />
-            </div>
-            <p className="hidden text-black dark:text-white sm:block">
-              Twitter
-            </p>
+            <p className="hidden text-black dark:text-white sm:block">Vailantan</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">2.2K</p>
+            <p className="text-black dark:text-white">3.5KG</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-3">$4,635</p>
+            <p className="text-meta-3">E-Waste</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">467</p>
+            <p className="text-black dark:text-white">590 Rs</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-meta-5">4.3%</p>
+            <p className="text-black dark:text-white">Mumbai</p>
           </div>
         </div>
 
         <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <div className="flex-shrink-0">
-              <img src={BrandThree} alt="Brand" />
-            </div>
-            <p className="hidden text-black dark:text-white sm:block">Github</p>
+            <p className="hidden text-black dark:text-white sm:block">Vailantan</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">2.1K</p>
+            <p className="text-black dark:text-white">3.5KG</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-3">$4,290</p>
+            <p className="text-meta-3">E-Waste</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">420</p>
+            <p className="text-black dark:text-white">590 Rs</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-meta-5">3.7%</p>
+            <p className="text-black dark:text-white">Mumbai</p>
           </div>
         </div>
 
         <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <div className="flex-shrink-0">
-              <img src={BrandFour} alt="Brand" />
-            </div>
-            <p className="hidden text-black dark:text-white sm:block">Vimeo</p>
+            <p className="hidden text-black dark:text-white sm:block">Vailantan</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">1.5K</p>
+            <p className="text-black dark:text-white">3.5KG</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-3">$3,580</p>
+            <p className="text-meta-3">E-Waste</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">389</p>
-
-            
+            <p className="text-black dark:text-white">590 Rs</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-meta-5">2.5%</p>
+            <p className="text-black dark:text-white">Mumbai</p>
           </div>
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-5">
+        <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <div className="flex-shrink-0">
-              <img src={BrandFive} alt="Brand" />
-            </div>
-            <p className="hidden text-black dark:text-white sm:block">
-              Facebook
-            </p>
+            <p className="hidden text-black dark:text-white sm:block">Vailantan</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">1.2K</p>
+            <p className="text-black dark:text-white">3.5KG</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-3">$2,740</p>
+            <p className="text-meta-3">E-Waste</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">230</p>
+            <p className="text-black dark:text-white">590 Rs</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-meta-5">1.9%</p>
+            <p className="text-black dark:text-white">Mumbai</p>
           </div>
         </div>
+
+
       </div>
     </div>
   );

@@ -96,7 +96,7 @@ export default function Home() {
                 <input type="password" className="input" name="password" />
               </div>
             </div>
-            <input type="submit" className="btn" value="Login" />
+            <input type="submit" className="btn1" style={{	backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}} value="Login" />
           </form>
         </div>
       </div>
