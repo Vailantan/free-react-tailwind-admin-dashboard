@@ -1,18 +1,19 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import {Routes, Route} from 'react-router-dom';
+
+import ECommerce from './pages/Dashboard/ECommerce';
 import SignIn from './pages/Authentication/SignIn';
 import SignUp from './pages/Authentication/SignUp';
 import Loader from './common/Loader';
 import routes from './routes';
-import Login from './components/Login';
-import ECommerce from './pages/Dashboard/ECommerce';
 
-// Default is the side bar and profile nav bar
+const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
+
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
 
-  useEffect(() => {
+  useEffect(() => { 
     setTimeout(() => setLoading(false), 1000);
   }, []);
 
@@ -28,9 +29,8 @@ function App() {
       <Routes>
         <Route path="/auth/signin" element={<SignIn />} />
         <Route path="/auth/signup" element={<SignUp />} />
-        <Route index element={<Login />} />
-         <Route path="/auth/dashboard" element={<ECommerce />} >
-         
+        <Route element={<DefaultLayout />}>
+          <Route index element={<ECommerce />} />
           {routes.map((routes, index) => {
             const { path, component: Component } = routes;
             return (

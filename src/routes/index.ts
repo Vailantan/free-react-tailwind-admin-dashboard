@@ -12,7 +12,7 @@ const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
 
 const coreRoutes = [
   {
-    path: 'calendar',
+    path: '/calendar',
     title: 'Calender',
     component: Calendar,
   },
