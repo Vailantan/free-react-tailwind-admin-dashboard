@@ -90,8 +90,8 @@ const Settings = () => {
                           type="text"
                           name="fullName"
                           id="fullName"
-                          placeholder="Devid Jhon"
-                          defaultValue="Devid Jhon"
+                          placeholder="Name"
+                        
                         />
                       </div>
                     </div>
@@ -108,8 +108,8 @@ const Settings = () => {
                         type="text"
                         name="phoneNumber"
                         id="phoneNumber"
-                        placeholder="+990 3343 7865"
-                        defaultValue="+990 3343 7865"
+                        placeholder="9845XXXXXX"
+                        
                       />
                     </div>
                   </div>
@@ -152,8 +152,8 @@ const Settings = () => {
                         type="email"
                         name="emailAddress"
                         id="emailAddress"
-                        placeholder="devidjond45@gmail.com"
-                        defaultValue="devidjond45@gmail.com"
+                        placeholder="abc@gmail.com"
+      
                       />
                     </div>
                   </div>
@@ -170,8 +170,8 @@ const Settings = () => {
                       type="text"
                       name="Username"
                       id="Username"
-                      placeholder="devidjhon24"
-                      defaultValue="devidjhon24"
+                      placeholder="username"
+                      
                     />
                   </div>
 
@@ -220,7 +220,7 @@ const Settings = () => {
                         id="bio"
                         rows={6}
                         placeholder="Write your bio here"
-                        defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque posuere fermentum urna, eu condimentum mauris tempus ut. Donec fermentum blandit aliquet."
+                       
                       ></textarea>
                     </div>
                   </div>
