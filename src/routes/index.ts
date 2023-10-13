@@ -9,15 +9,22 @@ const Settings = lazy(() => import('../pages/Settings'));
 const Tables = lazy(() => import('../pages/Tables'));
 const Alerts = lazy(() => import('../pages/UiElements/Alerts'));
 const Buttons = lazy(() => import('../pages/UiElements/Buttons'));
+const Home = lazy(() => import('../pages/Dashboard/ECommerce'));
+
 
 const coreRoutes = [
+  {
+    path: '/home',
+    title: 'Home',
+    component: Home,
+  },
   {
     path: '/calendar',
     title: 'Calender',
     component: Calendar,
   },
   {
-    path: 'profile',
+    path: '/profile',
     title: 'Profile',
     component: Profile,
   },

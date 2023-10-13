@@ -21,6 +21,8 @@ export default function Home() {
 
   const register = (event: React.FormEvent) => {
     event.preventDefault();
+    // console.log(event.target.email.value);
+    
     const email = (event.target as HTMLFormElement).elements.email.value;
     const password = (event.target as HTMLFormElement).elements.password.value;
     let flag = true;
@@ -42,7 +44,7 @@ export default function Home() {
   };
 
   const navigateDashboard = () => {
-    navigate('/auth/dashboard');
+    navigate('/home');
   };
 
   const inputs = document.querySelectorAll(".input");
