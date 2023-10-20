@@ -87,10 +87,10 @@ const Profile = () => {
           </div>
           <div className="mt-4">
             <h3 className="mb-1.5 text-2xl font-semibold text-black dark:text-white">
-              Danish Heilium
+              User 
             </h3>
-            <p className="font-medium">Ui/Ux Designer</p>
-            <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
+            <p className="font-medium">Collector</p>
+            {/* <div className="mx-auto mt-4.5 mb-5.5 grid max-w-94 grid-cols-3 rounded-md border border-stroke py-2.5 shadow-1 dark:border-strokedark dark:bg-[#37404F]">
               <div className="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
                 <span className="font-semibold text-black dark:text-white">
                   259
@@ -109,9 +109,9 @@ const Profile = () => {
                 </span>
                 <span className="text-sm">Following</span>
               </div>
-            </div>
+            </div> */}
 
-            <div className="mx-auto max-w-180">
+            {/* <div className="mx-auto max-w-180">
               <h4 className="font-semibold text-black dark:text-white">
                 About Me
               </h4>
@@ -122,9 +122,9 @@ const Profile = () => {
                 ultricies. Sed vel aliquet libero. Nunc a augue fermentum,
                 pharetra ligula sed, aliquam lacus.
               </p>
-            </div>
+            </div> */}
 
-            <div className="mt-6.5">
+            {/* <div className="mt-6.5">
               <h4 className="mb-3.5 font-medium text-black dark:text-white">
                 Follow me on
               </h4>
@@ -275,7 +275,7 @@ const Profile = () => {
                   </svg>
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
