@@ -28,6 +28,29 @@ const AcceptReject = () => {
   const [ewasteQty,setewasteQty] = useState();
   const [paperQty,setpaperQty] = useState();
   const [metalQty,setmetalQty] = useState();
+   const [chartState, setChartState] = useState({
+    series: [],
+    options: {
+      chart: {
+        width: 380,
+        type: 'pie',
+      },
+      labels: ['Paper', 'Rubber', 'Glass', 'Metal', 'E-Waste', 'Plastic'],
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+        },
+      ],
+    },
+  });
   console.log(`${Number(plasticQty)} plastic quantity`)
 
 
@@ -35,46 +58,43 @@ const AcceptReject = () => {
   const location = useLocation();
   const user = location.state as { user: User };
   const [imageUrl, setImageUrl] = useState('');
-  useEffect(() => {
-    const fetchData = async () => {
-      const usersRef = collection(db, 'users');
-      const q = query(usersRef, where('username', '==', user.user.username));
-      const querySnapshot = await getDocs(q);
-  
-      if (!querySnapshot.empty) {
-        const userData = querySnapshot.docs[0].data();
-        setplasticQty(userData.plasticQty);
-        setglassQty(userData.glassQty);
-        setrubberQty(userData.rubberQty);
-        setewasteQty(userData.ewasteQty);
-        setpaperQty(userData.paperQty);
-        setmetalQty(userData.metalQty);
-      }
-    };
-  
-    fetchData();
-  }, [user.user.username]);
-  const [chartState, setChartState] = useState({
-    series: [Number(paperQty),Number(rubberQty), Number(glassQty), Number(metalQty), Number(ewasteQty),Number(plasticQty)],
-    options: {
-      chart: {
-        width: 380,
-        type: 'pie',
-      },
-      labels: ['Paper', 'Rubber','Glass', 'Metal', 'E-Waste','Plastic'],
-      responsive: [{
-        breakpoint: 480,
-        options: {
-          chart: {
-            width: 200
-          },
-          legend: {
-            position: 'bottom'
-          }
-        }
-      }]
-    }
-  });
+
+        useEffect(() => {
+          const fetchData = async () => {
+            const usersRef = collection(db, 'users');
+            const q = query(usersRef, where('username', '==', user.user.username));
+            const querySnapshot = await getDocs(q);
+        
+            if (!querySnapshot.empty) {
+              const userData = querySnapshot.docs[0].data();
+        
+              setChartState({
+                series: [userData.paperQty ,userData.rubberQty, userData.glassQty, userData.metalQty, userData.ewasteQty,userData.plasticQty],
+                options: {
+                  chart: {
+                    width: 380,
+                    type: 'pie',
+                  },
+                  labels: ['Paper', 'Rubber','Glass', 'Metal', 'E-Waste','Plastic'],
+                  responsive: [{
+                    breakpoint: 480,
+                    options: {
+                      chart: {
+                        width: 200
+                      },
+                      legend: {
+                        position: 'bottom'
+                      }
+                    }
+                  }]
+                }
+              });
+            }
+          };
+        
+          fetchData();
+        }, [user.user.username]);
+
   useEffect(() => {
     const fetchImage = async () => {
       const imageRef = ref(storage, user.user.imgPath);

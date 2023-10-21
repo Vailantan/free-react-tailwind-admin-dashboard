@@ -56,41 +56,19 @@ const TableOne = () => {
 
         <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <p className="hidden text-black dark:text-white sm:block">Vailantan</p>
+            <p className="hidden text-black dark:text-white sm:block">Trevelyn Noronha</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">3.5KG</p>
+            <p className="text-black dark:text-white">7.5KG</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-3">E-Waste</p>
+            <p className="text-meta-3">Plastic</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">590 Rs</p>
-          </div>
-
-          <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">Mumbai</p>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
-          <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <p className="hidden text-black dark:text-white sm:block">Vailantan</p>
-          </div>
-
-          <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">3.5KG</p>
-          </div>
-
-          <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-3">E-Waste</p>
-          </div>
-
-          <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">590 Rs</p>
+            <p className="text-black dark:text-white">450 Rs</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
@@ -100,7 +78,7 @@ const TableOne = () => {
 
         <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <p className="hidden text-black dark:text-white sm:block">Vailantan</p>
+            <p className="hidden text-black dark:text-white sm:block">Brezhnev Rodrigues</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
@@ -108,11 +86,11 @@ const TableOne = () => {
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-meta-3">E-Waste</p>
+            <p className="text-meta-3">Paper</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">590 Rs</p>
+            <p className="text-black dark:text-white">690 Rs</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
@@ -122,11 +100,11 @@ const TableOne = () => {
 
         <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
           <div className="flex items-center gap-3 p-2.5 xl:p-5">
-            <p className="hidden text-black dark:text-white sm:block">Vailantan</p>
+            <p className="hidden text-black dark:text-white sm:block">Himanshu Bhundere</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
-            <p className="text-black dark:text-white">3.5KG</p>
+            <p className="text-black dark:text-white">2.5KG</p>
           </div>
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
@@ -134,7 +112,29 @@ const TableOne = () => {
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
-            <p className="text-black dark:text-white">590 Rs</p>
+            <p className="text-black dark:text-white">390 Rs</p>
+          </div>
+
+          <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
+            <p className="text-black dark:text-white">Mumbai</p>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-3 border-b border-stroke dark:border-strokedark sm:grid-cols-5">
+          <div className="flex items-center gap-3 p-2.5 xl:p-5">
+            <p className="hidden text-black dark:text-white sm:block">Amey Bagwe</p>
+          </div>
+
+          <div className="flex items-center justify-center p-2.5 xl:p-5">
+            <p className="text-black dark:text-white">1.5KG</p>
+          </div>
+
+          <div className="flex items-center justify-center p-2.5 xl:p-5">
+            <p className="text-meta-3">Paper</p>
+          </div>
+
+          <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
+            <p className="text-black dark:text-white">190 Rs</p>
           </div>
 
           <div className="hidden items-center justify-center p-2.5 sm:flex xl:p-5">
