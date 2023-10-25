@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Axios from 'axios';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { auth ,db, storage } from '../Configuration/firebaseConfig';
+import { } from '../Configuration/firebaseConfig';
 import "../style/Login.css";
 
 type UserData = {
@@ -21,27 +24,35 @@ export default function Home() {
 
   const register = (event: React.FormEvent) => {
     event.preventDefault();
-    // console.log(event.target.email.value);
+ 
     
     const email = (event.target as HTMLFormElement).elements.email.value;
     const password = (event.target as HTMLFormElement).elements.password.value;
-    let flag = true;
+    // let flag = true;
 
-    const keys = Object.keys(getdata);
-    for (let i = 0; i < keys.length; i++) {
-      const user = getdata[keys[i]];
-      if (user.EmailId === email && user.Password === password) {
-        alert("Login Successful");
-        navigateDashboard();
-        flag = false;
-      }
-    }
 
-    if (flag) {
-      alert("Login unsuccessful");
-      // navigate('/home');
-    flag = true;
-    }
+
+    signInWithEmailAndPassword(auth,email,password).then(data=>{
+      navigate("/");
+    }).catch(err=>{
+      alert("Invalid credential");
+    })
+
+    // const keys = Object.keys(getdata);
+    // for (let i = 0; i < keys.length; i++) {
+    //   const user = getdata[keys[i]];
+    //   if (user.EmailId === email && user.Password === password) {
+    //     alert("Login Successful");
+    //     navigateDashboard();
+    //     flag = false;
+    //   }
+    // }
+
+    // if (flag) {
+    //   alert("Login unsuccessful");
+    //   // navigate('/home');
+    // flag = true;
+    // }
   };
 
   const navigateDashboard = () => {
@@ -70,6 +81,9 @@ export default function Home() {
 
   return (
     <>
+     <img className="" src="	https://i.imgur.com/0fh06Fw.png
+" alt="Logo" style={{    width: "5%",
+  left: "43px", top:"25px",position:"absolute"}} />
       <img className="wave" src="wave.png" alt="Wave" />
       <div className="container">
         <div className="img">
@@ -77,15 +91,15 @@ export default function Home() {
         </div>
         <div className="login-content">
           <form onSubmit={register}>
-            <img src="avaatar.svg" alt="Avatar" />
+          
             <h2 className="title">Welcome</h2>
             <div className="input-div one">
               <div className="i">
                 <i className="fas fa-user"></i>
               </div>
               <div className="div">
-                <h5>Email Id</h5>
-                <input type="email" className="input" name="email" />
+               
+                <input type="email" name="email" placeholder='Email' />
               </div>
             </div>
             <div className="input-div pass">
@@ -93,8 +107,8 @@ export default function Home() {
                 <i className="fas fa-lock"></i>
               </div>
               <div className="div">
-                <h5>Password</h5>
-                <input type="password" className="input" name="password" />
+               
+                <input type="password" className="input" name="password"  placeholder='Password' />
               </div>
             </div>
             <input type="submit" className="btn1" style={{	backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}} value="Login" />

@@ -61,7 +61,7 @@ const AcceptReject = () => {
 
         useEffect(() => {
           const fetchData = async () => {
-            const usersRef = collection(db, 'users');
+            const usersRef = collection(db, 'users','brz@gmail.com','submits');
             const q = query(usersRef, where('username', '==', user.user.username));
             const querySnapshot = await getDocs(q);
         
@@ -106,32 +106,35 @@ const AcceptReject = () => {
     fetchImage();
   }, [user.user.imgPath]);
   const handleAccept = async () => {
-    const usersRef = collection(db, 'users');
+    // Update the path to target /users/brz@gmail.com/submits/
+    const usersRef = collection(db, 'users', 'brz@gmail.com', 'submits');
     const q = query(usersRef, where('username', '==', user.user.username));
     const querySnapshot = await getDocs(q);
   
     if (!querySnapshot.empty) {
       const docId = querySnapshot.docs[0].id;
-      const userRef = doc(db, 'users', docId);
+      const userRef = doc(db, 'users', 'brz@gmail.com', 'submits', docId);
       await setDoc(userRef, { status: 'Verified' }, { merge: true });
     }
   
     navigate('/verify');
   };
-
+  
   const handleReject = async () => {
-    const usersRef = collection(db, 'users');
+    // Update the path to target /users/brz@gmail.com/submits/
+    const usersRef = collection(db, 'users', 'brz@gmail.com', 'submits');
     const q = query(usersRef, where('username', '==', user.user.username));
     const querySnapshot = await getDocs(q);
   
     if (!querySnapshot.empty) {
       const docId = querySnapshot.docs[0].id;
-      const userRef = doc(db, 'users', docId);
+      const userRef = doc(db, 'users', 'brz@gmail.com', 'submits', docId);
       await setDoc(userRef, { status: 'Rejected' }, { merge: true });
     }
   
     navigate('/verify');
   };
+  
 
   return (
     <div>
