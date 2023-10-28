@@ -32,8 +32,7 @@ const Verify = () => {
       const usersSnapshot = await getDocs(usersCollectionRef);
   
       setUsers(usersSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }) as User));
-      console.log(users.username!=null)
-    
+      
     };
     fetchData();
   }, []);

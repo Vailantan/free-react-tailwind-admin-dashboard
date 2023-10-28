@@ -237,7 +237,7 @@ else{
                     style={{color:"#32be8f"}}
                       type="text"
                       
-                      placeholder="Enter your full name"
+                      placeholder="Enter your Company Name"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 outline-none focus:border-accept focus-visible:shadow-none "
                     />
 
