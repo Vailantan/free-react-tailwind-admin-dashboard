@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import MapComponent from './MapComponent';
+import Data from './Data';
+
+// let pathUrl: string ='';
+// let coordinates: string[] = [];
 
 const mapOptions = {
   zoom: 6,
@@ -11,7 +16,7 @@ const mapOptions = {
 const stateData = [
   {
     name: 'Vailantan',
-    location: 'Mumbai',
+    location: 'Bhiwandi',
     wasteCategory: 'E-Waste',
     weight: '100 kg',
     lat: 19.7515,
@@ -19,7 +24,7 @@ const stateData = [
   },
   {
     name: 'Himanshu',
-    location: 'Lucknow',
+    location: 'Kalyan',
     wasteCategory: 'Paper',
     weight: '50 kg',
     lat: 26.8467,
@@ -27,7 +32,7 @@ const stateData = [
   },
   {
     name: 'Trevelyn',
-    location: 'Chennai',
+    location: 'Dombivali',
     wasteCategory: 'Plastic',
     weight: '75 kg',
     lat: 11.1271,
@@ -35,37 +40,51 @@ const stateData = [
   },
   {
     name: 'Amey',
-    location: 'Bengaluru',
+    location: 'Ulhasnagar',
     wasteCategory: 'Dry Waste',
     weight: '120 kg',
     lat: 15.3173,
     lng: 75.7139,
   },
-  {
-    name: 'Wesley',
-    location: 'Thiruvananthapuram',
-    wasteCategory: 'Glass',
-    weight: '60 kg',
-    lat: 10.8505,
-    lng: 76.2711,
-  },
+  // {
+  //   name: 'Wesley',
+  //   location: 'Thiruvananthapuram',
+  //   wasteCategory: 'Glass',
+  //   weight: '60 kg',
+  //   lat: 10.8505,
+  //   lng: 76.2711,
+  // },
   // Add more states and their data here
 ];
 
 export default function Dashboard() {
   const [selectedLocation, setSelectedLocation] = useState(mapOptions.center);
+  const [isComponentVisible, setIsComponentVisible] = useState(false);
+
+  const handleClick = () => {
+    setIsComponentVisible(true);
+  };
+
 
   const changeMapLocation = (lat: number, lng: number) => {
     setSelectedLocation({ lat, lng });
   };
 
+    // coordinates.push(selectedLocation.lat+','+selectedLocation.lng);
+
+    // // pathUrl = coordinates.join(';');
+    // console.log("Path URL", coordinates);
+
   return (
     <div>
-      <iframe
+      <Data/>
+      {/* <iframe
         width="1500px"
         height={400}
         src={`https://maps.google.com/maps?q=${selectedLocation.lat},${selectedLocation.lng}&t=&zoom=6&maptype=roadmap&ie=UTF8&iwloc=&output=embed`}
-      ></iframe>
+      ></iframe> */}
+      <button onClick={handleClick}>Load Map on Click</button><br/><br/><br/>
+      {isComponentVisible && <MapComponent />}
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -111,3 +130,5 @@ export default function Dashboard() {
     </div>
   );
 }
+
+// export {pathUrl};
