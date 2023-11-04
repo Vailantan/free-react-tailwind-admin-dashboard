@@ -1,65 +1,101 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MapComponent from './MapComponent';
-import Data from './Data';
+import Data, { locationArrays } from './Data';
+import axios from 'axios';
+import  { useEffect} from 'react';
+import { db } from '../Configuration/firebaseConfig';
+import { collection, getDocs } from 'firebase/firestore';
+interface User {
+  id: string;
+  username: string;
+  wasteCategories: string;
+  rubberQty: number;
+  paperQty: number;
+  metalQty:number;
+  ewasteQty: number;
+  glassQty: number;
+  plasticQty: number;
+  plasticWeight: number;
+  metalWeight: number;
+  glassWeight: number;
+  ewasteWeight: number;
+  rubberWeight: number;
+  paperWeight: number;
+  status: string;
+  location: string;
+  lat?: number;
+  lng?: number;
+}
 
-// let pathUrl: string ='';
-// let coordinates: string[] = [];
+
+async function getLatLng(location: string) {
+  try {
+      const response = await axios.get(`https://nominatim.openstreetmap.org/search?format=json&q=${location}`);
+
+      if (response.data[0]) {
+          return {
+              lat: parseFloat(response.data[0].lat),
+              lng: parseFloat(response.data[0].lon)
+          };
+      } else {
+          console.log('No results found');
+          return null;
+      }
+  } catch (error) {
+      console.error(error);
+      return null;
+  }
+}
+
+
+
+
 
 const mapOptions = {
   zoom: 6,
   center: {
-    lat: 20.5937, // Centered on India
+    lat: 20.5937, 
     lng: 78.9629,
   },
 };
 
-const stateData = [
-  {
-    name: 'Vailantan',
-    location: 'Bhiwandi',
-    wasteCategory: 'E-Waste',
-    weight: '100 kg',
-    lat: 19.7515,
-    lng: 75.7139,
-  },
-  {
-    name: 'Himanshu',
-    location: 'Kalyan',
-    wasteCategory: 'Paper',
-    weight: '50 kg',
-    lat: 26.8467,
-    lng: 80.9462,
-  },
-  {
-    name: 'Trevelyn',
-    location: 'Dombivali',
-    wasteCategory: 'Plastic',
-    weight: '75 kg',
-    lat: 11.1271,
-    lng: 78.6569,
-  },
-  {
-    name: 'Amey',
-    location: 'Ulhasnagar',
-    wasteCategory: 'Dry Waste',
-    weight: '120 kg',
-    lat: 15.3173,
-    lng: 75.7139,
-  },
-  // {
-  //   name: 'Wesley',
-  //   location: 'Thiruvananthapuram',
-  //   wasteCategory: 'Glass',
-  //   weight: '60 kg',
-  //   lat: 10.8505,
-  //   lng: 76.2711,
-  // },
-  // Add more states and their data here
-];
 
 export default function Dashboard() {
+  const [users, setUsers] = useState<User[]>([]);
+  const [locations, setLocations] = useState<Array<{location: string, lat: number, lng: number}>>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const usersCollectionRef = collection(db, 'users', 'brz@gmail.com', 'submits'); // Reference the specific Firestore path
+      const usersSnapshot = await getDocs(usersCollectionRef);
+      const usersData = usersSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }) as User);
+      const locationsData = [];
+
+      for (const user of usersData) {
+        if(user.status =='Verified')
+        {
+        const latLng = await getLatLng(user.location);
+        if (latLng) {
+          user.lat = latLng.lat;
+          user.lng = latLng.lng;
+
+          locationsData.push({location: user.location, lat: latLng.lat, lng: latLng.lng});
+        }
+      }
+      }
+      
+
+      setUsers(usersData);
+      setLocations(locationsData);
+      console.log(` latitude is ${locationArrays[0]}`);
+    };
+
+    fetchData();
+  }, []);
+
   const [selectedLocation, setSelectedLocation] = useState(mapOptions.center);
   const [isComponentVisible, setIsComponentVisible] = useState(false);
+  
 
   const handleClick = () => {
     setIsComponentVisible(true);
@@ -70,19 +106,11 @@ export default function Dashboard() {
     setSelectedLocation({ lat, lng });
   };
 
-    // coordinates.push(selectedLocation.lat+','+selectedLocation.lng);
 
-    // // pathUrl = coordinates.join(';');
-    // console.log("Path URL", coordinates);
 
   return (
     <div>
-      <Data/>
-      {/* <iframe
-        width="1500px"
-        height={400}
-        src={`https://maps.google.com/maps?q=${selectedLocation.lat},${selectedLocation.lng}&t=&zoom=6&maptype=roadmap&ie=UTF8&iwloc=&output=embed`}
-      ></iframe> */}
+      <Data locationsData={locations}/>
       <button onClick={handleClick}>Load Map on Click</button><br/><br/><br/>
       {isComponentVisible && <MapComponent />}
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -107,23 +135,22 @@ export default function Dashboard() {
             </tr>
           </thead>
           <tbody>
-            {stateData.map((state, index) => (
-              <tr key={index} className=" border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" onClick={() => changeMapLocation(state.lat, state.lng)}>
-                <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  {state.name}
-                </th>
-                <td className="px-6 py-4">
-                  {state.location}
-                </td>
-                <td className="px-6 py-4">
-                  {state.wasteCategory}
-                </td>
-                <td className="px-6 py-4">
-                  {state.weight}
-                </td>
-               
-              </tr>
-            ))}
+          {users.filter(user => user.status === 'Verified').map(user => (
+    <tr key={user.username} className=" border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" onClick={() => changeMapLocation(state.lat, state.lng)}>
+      <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+        {user.username}
+      </th>
+      <td className="px-6 py-4">
+        {user.location}
+      </td>
+      <td className="px-6 py-4">
+        {user.wasteCategories}
+      </td>
+      <td className="px-6 py-4">
+        {`${Number(user.plasticWeight) + Number(user.metalWeight) + Number(user.ewasteWeight) + Number(user.rubberWeight) + Number(user.paperWeight) + Number(user.glassWeight)}KG`}
+      </td>
+    </tr>
+  ))}
           </tbody>
         </table>
       </div>
@@ -131,4 +158,3 @@ export default function Dashboard() {
   );
 }
 
-// export {pathUrl};

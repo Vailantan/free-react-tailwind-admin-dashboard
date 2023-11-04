@@ -1,9 +1,9 @@
-import React, { Component, ReactElement } from 'react';
+import { Component } from 'react';
 import mapboxgl, { LngLatLike, Map } from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { locationArrays } from './Data';
 import { start } from './Data';
-import { pathUrl } from './Map';
+
 
 interface MapComponentProps {}
 
@@ -20,6 +20,7 @@ class MapComponent extends Component<MapComponentProps, MapComponentState> {
 
 // Iterate through locationArrays and extract coordinates
 locationArrays.forEach((location) => {
+  console.log(`testing location ${location}`)
   pathCoordinates.push(location[0] + ',' + location[1]);
 });
 
