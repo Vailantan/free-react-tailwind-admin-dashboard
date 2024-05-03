@@ -5,6 +5,7 @@ import axios from 'axios';
 import  { useEffect} from 'react';
 import { db } from '../Configuration/firebaseConfig';
 import { collection, getDocs } from 'firebase/firestore';
+
 interface User {
   id: string;
   username: string;
@@ -27,6 +28,16 @@ interface User {
   lng?: number;
 }
 
+interface User2 
+{
+  id: string;
+  bin_id:string;
+  weight:number;
+  location:string;
+  username:string;
+  lat?: number;
+  lng?: number;
+}
 
 async function getLatLng(location: string) {
   try {
@@ -61,19 +72,23 @@ const mapOptions = {
 
 
 export default function Dashboard() {
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<User2[]>([]);
   const [locations, setLocations] = useState<Array<{location: string, lat: number, lng: number}>>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const usersCollectionRef = collection(db, 'users', 'brz@gmail.com', 'submits'); // Reference the specific Firestore path
+      
+
+
+
+      const usersCollectionRef = collection(db, 'inventory'); // Reference the specific Firestore path
       const usersSnapshot = await getDocs(usersCollectionRef);
-      const usersData = usersSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }) as User);
+      const usersData = usersSnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }) as User2);
+    
       const locationsData = [];
 
       for (const user of usersData) {
-        if(user.status =='Verified')
-        {
+        
         const latLng = await getLatLng(user.location);
         if (latLng) {
           user.lat = latLng.lat;
@@ -81,7 +96,7 @@ export default function Dashboard() {
 
           locationsData.push({location: user.location, lat: latLng.lat, lng: latLng.lng});
         }
-      }
+      
       }
       
 
@@ -121,10 +136,10 @@ export default function Dashboard() {
                 Name
               </th>
               <th scope="col" className="px-6 py-3">
-                Location
+                Bin ID
               </th>
               <th scope="col" className="px-6 py-3">
-                Waste Category
+                Location
               </th>
               <th scope="col" className="px-6 py-3">
                 Weight
@@ -135,19 +150,20 @@ export default function Dashboard() {
             </tr>
           </thead>
           <tbody>
-          {users.filter(user => user.status === 'Verified').map(user => (
+          {users.map(user => (
     <tr key={user.username} className=" border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" onClick={() => changeMapLocation(state.lat, state.lng)}>
       <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
         {user.username}
       </th>
       <td className="px-6 py-4">
+        {user.bin_id}
+      </td>
+      <td className="px-6 py-4">
         {user.location}
       </td>
+     
       <td className="px-6 py-4">
-        {user.wasteCategories}
-      </td>
-      <td className="px-6 py-4">
-        {`${Number(user.plasticWeight) + Number(user.metalWeight) + Number(user.ewasteWeight) + Number(user.rubberWeight) + Number(user.paperWeight) + Number(user.glassWeight)}KG`}
+        {`${user.weight}KG`}
       </td>
     </tr>
   ))}

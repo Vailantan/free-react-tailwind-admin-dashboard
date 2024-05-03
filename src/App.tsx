@@ -8,6 +8,7 @@ import SignUp from './pages/Authentication/SignUp';
 import Home from './components/Login';
 import Loader from './common/Loader';
 import routes from './routes';
+import Test from './pages/Verify';
 
 const DefaultLayout = lazy(() => import('./layout/DefaultLayout'));
 
@@ -31,6 +32,7 @@ function App() {
         {/* <Route path="/auth/signin" element={<SignIn />} /> */}
         <Route path="/auth/signup" element={<SignUp />} />
         <Route path="/signin" element={<Home />} />
+     
         <Route element={<DefaultLayout />}>
           <Route index element={<ECommerce />} />
           {routes.map((routes, index) => {

@@ -1,0 +1,128 @@
+.username{
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 4rem;
+  right: 40px;
+}
+.accept {
+  color: #FFF;
+  background: #44CC44;
+  padding: 15px 20px;
+  box-shadow: 0 4px 0 0 #2EA62E;
+  margin-right: 15px;
+}
+.accept:hover {
+  background: #6FE76F;
+  box-shadow: 0 4px 0 0 #7ED37E;
+}
+.deny {
+  color: #FFF;
+  background: tomato;
+  padding: 15px 30px;
+  box-shadow: 0 4px 0 0 #CB4949;
+}
+.deny:hover {
+  background: rgb(255, 147, 128);
+  box-shadow: 0 4px 0 0 #EF8282;
+}
+
+
+
+
+.heading{
+    color: white;
+    text-align: right;
+}
+.usercontent{
+    display: flex;
+    flex: start;
+    width: 900px;
+    margin-bottom: -36px;
+    gap:18rem;
+}
+.verifycontent{
+  display: flex;
+  justify-content: space-between;
+}
+  .scrollable-div {
+    height: 672px;
+    width: 400px;
+    overflow-y: scroll;
+    text-align: justify;
+    padding-left: 40px;
+    padding-bottom: 18px;
+    
+    }
+
+
+
+
+
+/* .carousel-container {
+   
+    height: 100%;
+    border-color: #4b5563;
+    width: 100%;
+  }
+  
+  .carousel-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    &:hover {
+      transform: scale(0.9);
+      box-shadow: 5px 5px 8px rgba(222, 222, 222, 0.362),
+        10px 10px 8px rgba(152, 133, 133, 0.392),
+        15px 15px 8px rgba(139, 154, 139, 0.303);
+    }
+    border-radius: 20%;
+    background: rgb(41, 40, 40);
+  }
+  
+  .carousel-card > img {
+    height: 80%;
+    width: 80%;
+    border-radius: 10%;
+  }
+  
+  .carousel-track {
+    display: flex;
+    position: absolute;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+  } */
+
+  .slider {
+    margin:-11px 20px;
+    overflow:"hidden";
+    padding:2rem 0;
+  }
+  
+  .slider img {
+    width: 100%;
+    border-radius:19px;
+    height: 224px;
+  }
+  
+  .react-multi-carousel-list {
+  padding: 0rem 0 2rem 0;
+  width: 80%;
+  left: -1%;
+  }
+  
+  .custom-dot-list-style button{
+  border: none;
+  background: rgb(255, 68, 68);
+  }
+  .react-multi-carousel-dot.react-multi-carousel-dot--active button{
+  background: rgb(255, 68, 68) !important;
+  }

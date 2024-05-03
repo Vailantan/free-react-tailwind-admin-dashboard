@@ -74,6 +74,7 @@ const coreRoutes = [
     title: 'Buttons',
     component: Buttons,
   },
+
   {
     path: '/verify',
     title: 'Verify',
